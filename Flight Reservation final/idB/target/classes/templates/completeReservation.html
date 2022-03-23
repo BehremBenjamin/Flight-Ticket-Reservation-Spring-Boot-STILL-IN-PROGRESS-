@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Reservation</title>
+    <style>
+       label {
+        display: inline-block;
+        width: 150px;
+        text-align: left;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <html>
+<body>
+
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                <h2>Complete Reservation:</h2>
+                                <label>Operating Airline:</label><p th:text="${flight.operatingAirlines}"></p>
+                                <label>Departure City:</label><p th:text="${flight.departureCity}"></p>
+                                <label>Arrival City:</label><p th:text="${flight.arrivalCity}"></p></br>
+
+                                <form action="completeReservation" method="post"/>
+                                    <h5> Passenger details:</h5><br>
+                                    <label>First name:</label>
+                                    <input type="text" name="passengerFirstName"><br>
+                                    <label>Last name:</label>
+                                    <input type="text" name="passengerLastName"><br>
+                                    <label>email:</label>
+                                    <input type="email" name="passengerEmail"><br>
+                                    <label>Phone:</label>
+                                    <input type="text" name="passengerPhone"><br><br>
+
+                                    <h5> Card Details:</h5><br>
+                                    <label>Name on the Card:</label>
+                                    <input type="text" name="nameOnTheCard"><br>
+                                    <label>Card number:</label>
+                                    <input type="text" name="cardNumber"><br>
+                                    <label>Expiry Date:</label>
+                                    <input type="text" name="expirationDate"><br>
+                                    <label>3 digit Sec code:</label>
+                                    <input type="text" name="securityCode"><br>
+                                    <input type="hidden" name="flightId"  th:value="${flight.getId()}"><br>
+                                    <input type="submit" value="Confirm!">
+                                </form>
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="http://maderafleamarket.com/wp-content/uploads/2021/04/book-your-reservation-image_1.jpg" class="img-fluid" alt="Sample image">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
